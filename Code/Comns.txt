@@ -1,2 +1,0 @@
-Lista:
-    Definir ideia principal do site, nome e divisão de tarefas.
