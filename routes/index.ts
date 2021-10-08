@@ -5,6 +5,10 @@ class IndexRoute {
 		res.render("index/index");
 	}
 
+	public async sobre(req: app.Request, res: app.Response) {
+		res.render("index/sobre");
+	}
+
 	public async teste(req: app.Request, res: app.Response) {
 		res.send("Eu sou um texto...");
 	}
