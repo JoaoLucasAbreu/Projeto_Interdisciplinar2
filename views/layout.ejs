@@ -8,9 +8,15 @@
 
 	<title><%=((typeof titulo === "undefined" || !titulo) ? "Projeto" : (titulo + " - Projeto")) %></title>
 
-	<link rel="stylesheet" href="/public/style.css">
-	<%- defineContent("styles") %>
+		<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="/public/CSS/style.css">
+	<%- defineContent("styles") %>
 </head>
 <body>
 
