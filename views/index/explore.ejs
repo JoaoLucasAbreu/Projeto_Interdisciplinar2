@@ -1,0 +1,29 @@
+
+<div class="glide">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <li class="glide__slide">0</li>
+        <li class="glide__slide">1</li>
+        <li class="glide__slide">2</li>
+      </ul>
+    </div>
+  </div>
+
+
+
+<%- contentFor("styles") %>
+<link rel="stylesheet" href="/public/glide-3.4.1/css/glide.core.min.css" />
+
+<%- contentFor("pos-styles") %>
+<style type="text/css">
+  header {
+    position: relative;
+  }
+</style>
+
+<%- contentFor("scripts") %>
+<script src="/public/glide-3.4.1/glide.min.js"></script>
+
+<script>
+  new Glide('.glide').mount()
+</script>

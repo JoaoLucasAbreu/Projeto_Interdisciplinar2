@@ -2,11 +2,15 @@
 
 class IndexRoute {
 	public async index(req: app.Request, res: app.Response) {
-		res.render("index/index");
+		res.render("home/home");
+	}
+
+	public async explore(req: app.Request, res: app.Response) {
+		res.render("home/explore");
 	}
 
 	public async sobre(req: app.Request, res: app.Response) {
-		res.render("index/sobre");
+		res.render("home/sobre");
 	}
 
 	public async teste(req: app.Request, res: app.Response) {
