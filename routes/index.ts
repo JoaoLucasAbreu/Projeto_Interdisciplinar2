@@ -2,19 +2,19 @@
 
 class IndexRoute {
 	public async index(req: app.Request, res: app.Response) {
-		res.render("home/home");
+		res.render("index/index");
 	}
 
 	public async explore(req: app.Request, res: app.Response) {
-		res.render("home/explore");
+		res.render("index/explore");
 	}
 
-	public async sobre(req: app.Request, res: app.Response) {
-		res.render("home/sobre");
+	public async upload(req: app.Request, res: app.Response) {
+		res.render("index/upload");
 	}
 
-	public async teste(req: app.Request, res: app.Response) {
-		res.send("Eu sou um texto...");
+	public async about(req: app.Request, res: app.Response) {
+		res.render("index/about");
 	}
 
 	public async oi(req: app.Request, res: app.Response) {
