@@ -7,7 +7,7 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* CSS Layout */
+/*CSS Layout - NavBar*/
 header {
     z-index: 999;
     position: absolute;
@@ -59,7 +59,7 @@ header nav .menu a:hover:before {
     width: 100%;
 }
 
-/*CSS Home*/
+/*CSS Home - Slider Passer*/
 section {
     padding: 100px 200px;
 }
@@ -203,7 +203,7 @@ section {
     transition-property: clip-path;
 }
 
-/*Media Query*/
+/*Media Query CSS Home - Slider Passer + NavBar*/
 @media (max-width: 1040px) {
     header {
         padding: 12px 20px;
@@ -275,4 +275,14 @@ section {
         background-position: center;
         transition: 0.3s ease;
     }
+}
+
+/*CSS Home - Containers*/
+.container {
+    padding: 50px;
+    max-width: 1200px;
+}
+
+.coluna {
+    padding: 15px;
 }
