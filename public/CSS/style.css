@@ -290,6 +290,7 @@ section {
 
 .coluna {
     padding: 15px;
+    max-width: 100%;
 }
 
 .container .coluna .box {
@@ -327,3 +328,31 @@ section {
 .container .coluna .box p {
     margin-top: 10px;
 }
+
+.cube {
+    text-align: center;
+}
+
+.icons {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.container .coluna .cube .cube1{
+    background: linear-gradient(to right, rgb(69, 0, 133), rgb(0, 210, 247));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .coluna .cube .cube2{
+    background: linear-gradient(to right, rgb(0, 210, 247), rgb(247, 0, 144));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.container .coluna .cube .cube3{
+    background: linear-gradient(to right, rgb(247, 0, 144), rgb(69, 0, 133));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
