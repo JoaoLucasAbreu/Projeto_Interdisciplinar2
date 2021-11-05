@@ -333,6 +333,7 @@ section {
 .cube {
     text-align: center;
     max-width: 300px;
+    margin: 0px auto;
 }
 
 .icons {
@@ -342,18 +343,21 @@ section {
 
 .container .coluna .cube .cube1{
     background: linear-gradient(to right, rgb(69, 0, 133), rgb(0, 210, 247));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .container .coluna .cube .cube2{
     background: linear-gradient(to right, rgb(0, 210, 247), rgb(247, 0, 144));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .container .coluna .cube .cube3{
     background: linear-gradient(to right, rgb(247, 0, 144), rgb(69, 0, 133));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
