@@ -362,6 +362,16 @@ section {
     -webkit-text-fill-color: transparent;
 }
 
+.c {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.titulos {
+    font-size: 3.0em;
+    margin-bottom: 30px;
+}
+
 
 
 
