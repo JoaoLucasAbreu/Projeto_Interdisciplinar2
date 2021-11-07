@@ -15,7 +15,7 @@ body {
 /*CSS Layout - NavBar*/
 header {
     z-index: 999;
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
@@ -302,6 +302,7 @@ section {
     opacity: 1;
     font-size: 3.7em;
     background: linear-gradient(to right, hotpink, rgb(255, 255, 255));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 900;
@@ -311,6 +312,7 @@ section {
     opacity: 0.7;
     font-size: 2.7em;
     background: linear-gradient(to right, rgb(112, 215, 255), rgb(255, 255, 255));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
@@ -321,6 +323,7 @@ section {
     margin-bottom: 3px;
     font-size: 1.7em;
     background: linear-gradient(to right, rgb(159, 61, 252), rgb(255, 255, 255));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
