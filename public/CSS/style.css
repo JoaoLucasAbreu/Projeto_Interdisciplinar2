@@ -39,6 +39,29 @@ header nav {
     position: relative;
 }
 
+.login {
+    display: none;
+}
+
+.login.active {
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 600px;
+    max-width: 100%;
+    margin: 20px;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+}
+
 header nav .menu a{
     position: relative;
     color: #ffffff;
