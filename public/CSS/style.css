@@ -39,23 +39,29 @@ header nav {
     position: relative;
 }
 
-.login {
+.fundo-login {
     display: none;
 }
 
-.login.active {
-    z-index: 999;
+.fundo-login.active {
     position: fixed;
+    width: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(1, 1, 1, 0.5);
+}
+
+.login {
     background: #fff;
     width: 600px;
-    max-width: 100%;
+    max-width: 600px;
     margin: 20px;
     padding: 40px;
+    display: flex;
     flex-direction: column;
     align-items: center;
     border-radius: 5px;
@@ -87,6 +93,13 @@ header nav .menu a:hover:before {
     width: 100%;
 }
 
+header .fundo-login .login button {
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+    padding: 0px 30px;
+}
+
 /*CSS Home - Slider Passer*/
 section {
     padding: 100px 200px;
@@ -100,7 +113,6 @@ section {
     justify-content: center;
     flex-direction: column;
     background: #771EF5;
-
 }
 
 .home:before {
