@@ -28,24 +28,59 @@
 	<header>
     	<a href="#" class="logo">GALLERY</a>
       <div class="menu-btn"></div>
-	  <div class="fundo-login">
-		<div class="login">
-			<p class="material-icons" style="font-size: 64px;">account_circle</p>
-			<input type="text" placeholder="E-mail ou Apelido">
-			<input type="password" placeholder="Senha">
-			<button type="button">Login</button>
-		</div>
-	  </div>
       <nav> 
           <div class="menu">
             <a href="/">Home</a>
             <a href="/explore">Explore</a>
             <a href="/upload">Upload</a>
             <a href="/about">About us</a>
-			<a href="#" class="material-icons profile" style="font-size: 36px;">account_circle</a>
+			<a href="#" class="material-icons profile" style="font-size: 36px;" data-toggle="modal" data-target="#modalLogin">account_circle</a>
           </div>
       </nav>
     </header>
+
+	<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="modalLoginLabel">Perfil</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					
+					<ul class="nav nav-pills" id="tabLogin" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="home-tab" data-toggle="pill" href="#home" role="tab" aria-controls="home" aria-selected="true">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="profile-tab" data-toggle="pill" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sign-In</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="myTabContent" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+						<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+							<p class="material-icons" style="font-size: 64px; display: block;">account_circle</p>
+							<input type="text" placeholder="E-mail ou Apelido" style="display: block;">
+							<input type="password" placeholder="Senha" style="display: block;">
+							<button type="button" class="Entrar">Entrar</button>
+						</div>
+
+						<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+							Cadastro novo
+						</div>
+					</div>
+
+
+				</div>
+				<!--
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div> -->
+			</div>
+		</div>
+	</div>
 
 	<%- body %>
 

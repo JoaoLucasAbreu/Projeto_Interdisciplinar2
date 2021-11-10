@@ -2,11 +2,6 @@
 const menuBtn = document.querySelector(".menu-btn");
 const navigation = document.querySelector("nav");
 const profile = document.querySelector(".profile");
-const login = document.querySelector(".fundo-login");
-
-profile.addEventListener("click", () => {
-    login.classList.toggle("active");
-});
 
 menuBtn.addEventListener("click", () => {
     menuBtn.classList.toggle("active");
