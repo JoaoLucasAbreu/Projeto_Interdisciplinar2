@@ -410,7 +410,11 @@ section {
     margin-bottom: 30px;
 }
 
-
-
-
+.imagem-galeria {
+    height: 50vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
