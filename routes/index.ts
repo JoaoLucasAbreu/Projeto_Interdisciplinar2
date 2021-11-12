@@ -69,7 +69,7 @@ class IndexRoute {
 			// Todas os comandos SQL devem ser executados aqui dentro do app.sql.connect().
 
 			// As interrogações serão substituídas pelos valores passados ao final, na ordem passada.
-			await sql.query("INSERT INTO pessoa (nome, sobrenome, apelido, email, senha) VALUES (?, ?, ?, ?, ?)", [pessoa.nome, pessoa.sobrenome, pessoa.apelido, pessoa.email, pessoa.senha]);
+			await sql.query("INSERT INTO usuario (nome, sobrenome, apelido, email, senha) VALUES (?, ?, ?, ?, ?)", [pessoa.nome, pessoa.sobrenome, pessoa.apelido, pessoa.email, pessoa.senha]);
 
 		});
 
