@@ -122,6 +122,7 @@ header nav .menu a:hover:before {
     display: block;
     margin: 5px 0;
     border-radius: 0;
+    border-color: solid black;
 }
 
 .button-wrapper {
