@@ -5,7 +5,7 @@ CREATE DATABASE IF NOT EXISTS GALLERY DEFAULT CHARACTER SET utf8mb4 DEFAULT COLL
 USE gallery;
 
 CREATE TABLE usuario (
-  id int NOT NULL AUTO_INCREMENT,
+  id_usuario int NOT NULL AUTO_INCREMENT,
   nome varchar(50) NOT NULL,
   sobrenome varchar(50) NOT NULL,
   apelido varchar(50) NOT NULL,
@@ -15,3 +15,12 @@ CREATE TABLE usuario (
   UNIQUE KEY apelido_UN (apelido),
   UNIQUE KEY email_UN (email)
 );
+
+CREATE TABLE arte (
+  id_arte int NOT NULL AUTO_INCREMENT,
+  titulo_arte varchar(50) NOT NULL,
+  autor varchar(50) NOT NULL,
+  sobre varchar(50),
+  tema varchar(50) NOT NULL,
+  FOREIGN KEY (id_usuario) references usuario(id_usuario)
+)

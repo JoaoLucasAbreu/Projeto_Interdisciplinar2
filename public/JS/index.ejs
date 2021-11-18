@@ -1,32 +1,31 @@
-<h1>Upload da sua arte!</h1>
+﻿<form id="form">
+	<div>
+		<label for="nome">Nome</label>
+		<input type="text" id="nome" name="nome" maxlength="50" />
+	</div>
 
-<h2>
-    Faça sua obra fazer parte do nosso site para que mais pessoas vejam ela! 
-</h2>
+	<div>
+		<label for="email">E-mail</label>
+		<input type="email" id="email" name="email" maxlength="50" />
+	</div>
 
-<form id="form">
-    <div class="form-group">
-        <label for="imagemobra">Arraste ou clique aqui ↓</label>
-        <input type="file" id="imagemobra" name="imagem" class="form-control" accept="image/jpeg,image/png" />
-    </div>
+	<div>
+		<label for="foto">Foto</label>
+		<input type="file" id="foto" name="foto" accept="image/*" />
+	</div>
 
-    <div class="form-group">
-        <label for="nomeobra">Nome da obra:</label>
-        <input type="text" id="nomeobra" name="nome" class="form-control" maxlength="50" />
-    </div>
-
-    <div class="form-group">
-        <label for="autorobra">Autor:</label>
-        <input type="text" id="autorobra" name="autor" class="form-control" maxlength="100" />
-    </div>
-
-    <div class="form-group">
-        <label for="sobreobra">Sobre:</label>
-        <input type="text" id="sobreobra" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Criar</button>
+	<div>
+		<button type="submit">Criar Pessoa</button>
+	</div>
 </form>
+
+<!--
+	jQuery
+
+	jQuery API
+	https://api.jquery.com/
+-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!--
 	jQuery Validation
@@ -58,24 +57,25 @@
 	$("#form").validate({
 		rules: {
 			// Aqui o que vale é o name, não o id!
-            imagem: {
-                required: true
-            },
 			nome: {
+				required: true,
+				minlength: 3
+			},
+			email: {
 				required: true
 			},
-			autor: {
+			foto: {
 				required: true
 			}
 		},
 
 		submitHandler: function (form) {
 			// Não pode simplesmente fazer submitHandler: criarPessoa, porque criarPessoa() é async... :(
-			criarObra(form);
+			criarPessoa(form);
 		}
 	});
 
-	async function criarObra(form) {
+	async function criarPessoa(form) {
 		// Vamos prevenir cliques duplos/acidentais :)
 		if (fetchAtivo) {
 			return;
@@ -90,28 +90,20 @@
 		};
 
 		try {
-			let response = await fetch("/criarObra", opcoes);
+			let response = await fetch("/criarPessoa", opcoes);
 
 			if (response.ok) {
-				// Limpa os campos para facilitar a criação da próxima obbra.
+				// Limpa os campos para facilitar a criação da próxima pessoa.
 				form.reset();
 				// Limpa os erros e sucessos.
 				$(form).validate().resetForm();
 
-				alert("Obra criada com sucesso!");
+				alert("Pessoa criada com sucesso!");
 			} else {
-                let erro = await response.json();
-				alert("Erro ao criar a obra: " + erro);
+				alert("Erro ao criar a pessoa!");
 			}
 		} catch (ex) {
 			alert("Erro de rede: " + ex.message);
 		}
 	}
 </script>
-
-<%- contentFor("pos-styles") %>
-<style type="text/css">
-    body {
-        color: #fff;
-    }
-</style>
