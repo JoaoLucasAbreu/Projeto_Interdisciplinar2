@@ -1,32 +1,48 @@
-<h1>Upload da sua arte!</h1>
+<div style="position: relative;">
+	<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ZQhQzO.json"  background="transparent"  speed="1" style="width: 700px; margin: 0 40px 0 auto;"  loop  autoplay></lottie-player>
+</div>
 
-<h2>
-    Faça sua obra fazer parte do nosso site para que mais pessoas vejam ela! 
-</h2>
+<div style="position: absolute; padding-top: 70px;">
+	<h1>Upload da sua arte!</h1>
 
-<form id="form">
-    <div class="form-group">
-        <label for="imagemobra">Arraste ou clique aqui ↓</label>
-        <input type="file" id="imagemobra" name="imagem" class="form-control" accept="image/jpeg,image/png" />
-    </div>
+	<h2>
+		Faça sua obra fazer parte do nosso site para que mais pessoas vejam ela! 
+	</h2>
 
-    <div class="form-group">
-        <label for="nomeobra">Nome da obra:</label>
-        <input type="text" id="nomeobra" name="nome" class="form-control" maxlength="50" />
-    </div>
+	<div class="container-fluid container" style="max-width: 1400px; padding-top: 20px;">
+		<div class="row">
+			<div class="col-sm-4 coluna">
+				<form id="form" style="padding-top: 70px;">
+					<div class="form-group">
+						<label for="imagemobra">Arraste ou clique aqui ↓</label>
+						<input type="file" id="imagemobra" name="imagem" class="form-control" accept="image/jpeg,image/png" />
+					</div>
+				
+					<div class="form-group">
+						<label for="nomeobra">Nome da obra:</label>
+						<input type="text" id="nomeobra" name="nome" class="form-control" maxlength="50" />
+					</div>
+				
+					<div class="form-group">
+						<label for="autorobra">Autor:</label>
+						<input type="text" id="autorobra" name="autor" class="form-control" maxlength="100" />
+					</div>
+				
+					<div class="form-group">
+						<label for="sobreobra">Sobre:</label>
+						<input type="text" id="sobreobra" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
+					</div>
+				
+					<button type="submit" class="btn btn-primary">Criar</button>
+				</form>
+			</div>
+			<div class="col-sm-8 coluna">
+				
+			</div>
+		</div>
+	</div>
+</div>
 
-    <div class="form-group">
-        <label for="autorobra">Autor:</label>
-        <input type="text" id="autorobra" name="autor" class="form-control" maxlength="100" />
-    </div>
-
-    <div class="form-group">
-        <label for="sobreobra">Sobre:</label>
-        <input type="text" id="sobreobra" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
-    </div>
-
-    <button type="submit" class="btn btn-primary">Criar</button>
-</form>
 
 <!--
 	jQuery Validation
@@ -114,4 +130,10 @@
     body {
         color: #fff;
     }
+
+	header {
+		position: absolute;
+	}
+
+</style>
 </style>
