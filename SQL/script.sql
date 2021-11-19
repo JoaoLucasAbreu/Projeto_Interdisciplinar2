@@ -20,7 +20,6 @@ CREATE TABLE arte (
   id_arte int NOT NULL AUTO_INCREMENT,
   titulo_arte varchar(50) NOT NULL,
   autor varchar(50) NOT NULL,
-  sobre varchar(50),
   tema varchar(50) NOT NULL,
-  FOREIGN KEY (id_usuario) references usuario(id_usuario)
+  sobre varchar(50)
 )
