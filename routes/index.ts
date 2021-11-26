@@ -6,7 +6,19 @@ class IndexRoute {
 	}
 
 	public async explore(req: app.Request, res: app.Response) {
-		res.render("index/explore");
+		let artes: any[];
+
+		await app.sql.connect(async (sql) => {
+
+			artes = await sql.query("SELECT id_arte, titulo_arte, autor, tema, sobre FROM arte");
+
+		});
+
+		const opcoes = {
+			artes: artes
+		};
+
+		res.render("index/explore", opcoes);
 	}
 
 	public async upload(req: app.Request, res: app.Response) {
@@ -82,7 +94,27 @@ class IndexRoute {
 		// Os dados enviados via POST ficam dentro de req.body
 		let obra = req.body;
 
-		// @@@ validar os campos da obra
+		if (!obra.titulo_arte) {
+			res.status(400);
+			res.json("Nome inválido");
+			return;
+		}
+
+		if (!obra.autor) {
+			res.status(400);
+			res.json("Autor inválido");
+			return;
+		}
+
+		if (!obra.tema) {
+			res.status(400);
+			res.json("Tema inválido");
+			return;
+		}
+
+		if (!obra.sobre) {
+			obra.sobre = "";
+		}
 
 		if (!req.uploadedFiles || !req.uploadedFiles.imagem) {
 			res.status(400);
@@ -96,23 +128,22 @@ class IndexRoute {
 			return;
 		}
 
-		/////////await app.sql.connect(async (sql) => {
+		await app.sql.connect(async (sql) => {
 
-			/////////await sql.beginTransaction();
+			await sql.beginTransaction();
 
 			// Todas os comandos SQL devem ser executados aqui dentro do app.sql.connect().
 
 			// As interrogações serão substituídas pelos valores passados ao final, na ordem passada.
-			/////////await sql.query("INSERT INTO obra (nome, sobrenome, apelido, email, senha) VALUES (?, ?, ?, ?, ?)", [pessoa.nome, pessoa.sobrenome, pessoa.apelido, pessoa.email, pessoa.senha]);
+			await sql.query("INSERT INTO arte (titulo_arte, autor, tema, sobre) VALUES (?, ?, ?, ?)", [obra.titulo_arte, obra.autor, obra.tema, obra.sobre]);
 
-			/////////let id: number = await sql.scalar("SELECT last_insert_id()");
+			let id: number = await sql.scalar("SELECT last_insert_id()");
 
-			let id = (Math.random() * 100000000) | 0;
-			await app.fileSystem.saveUploadedFileToNewFile("/public/IMGS/obra" + id + ".jpg", req.uploadedFiles.imagem);
+			await app.fileSystem.saveUploadedFileToNewFile("/public/IMGS/artes/arte" + id + ".jpg", req.uploadedFiles.imagem);
 
-			/////////await sql.commit();
+			await sql.commit();
 
-		/////////});
+		});
 
 		res.json(true);
 	}

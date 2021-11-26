@@ -25,23 +25,28 @@
 					</div>
 				
 					<div class="form-group">
-						<label for="nomeobra">Nome da obra:</label>
-						<input type="text" id="nomeobra" name="nome" class="form-control" maxlength="50" />
+						<label for="titulo_arte">Nome da obra:</label>
+						<input type="text" id="titulo_arte" name="titulo_arte" class="form-control" maxlength="50" />
 					</div>
 				
 					<div class="form-group">
-						<label for="autorobra">Autor:</label>
-						<input type="text" id="autorobra" name="autor" class="form-control" maxlength="100" />
+						<label for="autor">Autor:</label>
+						<input type="text" id="autor" name="autor" class="form-control" maxlength="100" />
 					</div>
 				
 					<div class="form-group">
-						<label for="sobreobra">Sobre:</label>
-						<input type="text" id="sobreobra" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
+						<label for="sobre">Sobre:</label>
+						<input type="text" id="sobre" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
 					</div>
 
 					<div class="form-group">
 						<label for="temaobra">Tipo de Arte:</label><br>
-						<input name="tema" id="temaobra" list="temas" class="form-control">
+						<select id="tema" name="tema" class="form-control">
+							<option value="3D">3D</option>
+							<option value="Arte Digital">Arte Digital</option>
+							<option value="Fotografia">Fotografia</option>
+							<option value="Pinturas">Pinturas</option>
+						</select>
 					</div>
 				
 					<button type="submit" class="btn btn-primary">Criar</button>
