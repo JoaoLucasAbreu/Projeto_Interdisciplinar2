@@ -7,9 +7,16 @@
 <div class="glide espacamento" id="glide1">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Luz_Station.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Macaco2.jpg);"></div>
-      </ul>
+        <%
+        for (let i = 0; i < artes.length; i++) {
+          if (artes[i].tema == "Pinturas") {
+      %>
+      <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/artes/arte<%= artes[i].id_arte %>.jpg)"></div>
+
+      <%
+          }
+        }
+      %></ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
       <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
@@ -22,17 +29,16 @@
   <div class="glide espacamento" id="glide2">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Luz_Station.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Macaco2.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Omniskull.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/orquidea.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Passarinhando.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/PorDoSol.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/VoltandoProFuturo.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/BairroLiberdade.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Zebra_GuiMoraes.jpg);"></div>
-        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/Gato.jpg);"></div>
-      </ul>
+        <%
+        for (let i = 0; i < artes.length; i++) {
+          if (artes[i].tema == "Arte Digital") {
+      %>
+      <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/artes/arte<%= artes[i].id_arte %>.jpg)"></div>
+
+      <%
+          }
+        }
+      %></ul>
     </div>
     <div class="glide__arrows" data-glide-el="controls">
       <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
@@ -48,7 +54,8 @@
           for (let i = 0; i < artes.length; i++) {
             if (artes[i].tema == "Fotografia") {
         %>
-          <li class="glide__slide"> <img src="/public/IMGS/artes/arte<%= artes[i].id_arte %>.jpg"/></li>
+        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/artes/arte<%= artes[i].id_arte %>.jpg)"></div>
+
         <%
             }
           }
@@ -62,6 +69,26 @@
   </div>
 
   <h3>3D</h3>
+  <div class="glide espacamento" id="glide4">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <%
+          for (let i = 0; i < artes.length; i++) {
+            if (artes[i].tema == "3D") {
+        %>
+        <li class="glide__slide"> <div class="imagem-galeria" style="background-image: url(/public/IMGS/artes/arte<%= artes[i].id_arte %>.jpg)"></div>
+
+        <%
+            }
+          }
+        %>
+      </ul>
+    </div>
+    <div class="glide__arrows" data-glide-el="controls">
+      <button class="glide__arrow glide__arrow--left" data-glide-dir="<">prev</button>
+      <button class="glide__arrow glide__arrow--right" data-glide-dir=">">next</button>
+    </div>
+  </div>
 
 
 <%- contentFor("styles") %>
@@ -82,6 +109,8 @@ const config={
 new Glide("#glide3", config).mount();
 new Glide("#glide1", config).mount();
 new Glide("#glide2", config).mount();
+new Glide("#glide4", config).mount();
+
 </script>
 
 <%- contentFor("pos-styles") %>
