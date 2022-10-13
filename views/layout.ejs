@@ -12,30 +12,33 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
 	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 	<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
 	<%- defineContent("styles") %>
 	<link rel="stylesheet" href="/public/CSS/style.css">
+	<link rel="stylesheet" href="/public/CSS/roadmap.css">
 	<%- defineContent("pos-styles") %>
 </head>
 <body>
 	<header>
-    	<a href="#" class="logo">GALLERY</a>
+		<div>
+			<img src="/public/IMGS/airplane-1755.svg" style="max-width: 50px;">
+			<a href="#" class="logo">Quando eu voo</a>
+		</div>
       <div class="menu-btn"></div>
       <nav> 
           <div class="menu">
             <a href="/">Home</a>
-            <a href="/explore">Explore</a>
-            <a href="/upload">Upload</a>
-            <a href="/about">About us</a>
-			<a href="#" class="material-icons profile" style="font-size: 36px;" data-toggle="modal" data-target="#modalLogin">account_circle</a>
-          </div>
+            <a href="/upload">Dashboard</a>
+            <a href="/about">Sobre nós</a>
+		</div>
       </nav>
     </header>
 

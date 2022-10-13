@@ -1,183 +1,173 @@
-<div style="
-    position: absolute;
-    z-index: -1;
-    text-align: right;
-    left: 0;
-    top: 0;
-    width: 100%;">
-	<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_ZQhQzO.json"  background="transparent"  speed="1" style="max-width: 700px; margin-right: 100px; display: inline-block;"  loop  autoplay></lottie-player>
-</div>
 
-<div style="position: absolute; padding-top: 70px;">
-	<h1>Upload</h1>
-
-	<h2>
-		Faça sua obra fazer parte do nosso site para que mais pessoas vejam ela! 
-	</h2>
-
-	<div class="container-fluid container" style="max-width: 800px; padding: 0;">
-		<div class="row">
-			<div class="col-sm-6">
-				<form id="form">
-					<div class="form-group">
-						<label for="imagemobra">Arraste ou clique aqui ↓</label>
-						<input type="file" id="imagemobra" name="imagem" class="form-control" accept="image/jpeg,image/png" />
-					</div>
-				
-					<div class="form-group">
-						<label for="titulo_arte">Nome da obra:</label>
-						<input type="text" id="titulo_arte" name="titulo_arte" class="form-control" maxlength="50" />
-					</div>
-				
-					<div class="form-group">
-						<label for="autor">Autor:</label>
-						<input type="text" id="autor" name="autor" class="form-control" maxlength="100" />
-					</div>
-				
-					<div class="form-group">
-						<label for="sobre">Sobre:</label>
-						<input type="text" id="sobre" name="sobre" class="form-control" placeholder="(Opcional)" maxlength="250" />
-					</div>
-
-					<div class="form-group">
-						<label for="temaobra">Tipo de Arte:</label><br>
-						<select id="tema" name="tema" class="form-control">
-							<option value="3D">3D</option>
-							<option value="Arte Digital">Arte Digital</option>
-							<option value="Fotografia">Fotografia</option>
-							<option value="Pinturas">Pinturas</option>
-						</select>
-					</div>
-				
-					<button type="submit" class="btn btn-primary">Criar</button>
-				</form>
-
-				<datalist id="temas"> 
-					<option>3D</option> 
-					<option>Arte Digital</option> 
-					<option>Fotografia</option> 
-					<option>Pinturas</option>
-				</datalist>
+<div class="card" style="width: 1200px;
+						margin: 0 auto; 
+						float: none; 
+						margin-bottom: 10px;">
+	<div class="card-body">
+	    <div class="container-fluid">
+			<h5 class="card-title" style="text-align: center;">Dashboard</h5>
+			<div class="dropdown"  style="display: inline-block;">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Destino
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				  <a class="dropdown-item" href="#">Alguma ação</a>
+				  <a class="dropdown-item" href="#">Outra ação</a>
+				  <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+				</div>
 			</div>
-			<div class="col-sm-6">
-				
+			<div class="dropdown" style="display: inline-block;">
+				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  Origem
+				</button>
+				<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				  <a class="dropdown-item" href="#">Alguma ação</a>
+				  <a class="dropdown-item" href="#">Outra ação</a>
+				  <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+				</div>
 			</div>
-		</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<canvas id="lineChart" width="400" height="80"></canvas>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6">
+					<canvas id="doughChart" width="400" height="170"></canvas>
+				</div>
+				<div class="col-sm-6">
+					<canvas id="barChart" width="400" height="170"></canvas>
+				</div>
+			</div>
+	  	</div>
 	</div>
 </div>
 
+<script>
 
-<!--
-	jQuery Validation
-
-	jQuery Validation Plugin
-	https://jqueryvalidation.org/
-	https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods
-	https://jqueryvalidation.org/category/methods/
-	https://jqueryvalidation.org/category/plugin/
-	https://jqueryvalidation.org/category/validator/
--->
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/localization/messages_pt_BR.min.js"></script>
-
-<!--
-	Isso é só um helper para podermos descobrir quantos fetch() estão em execução!
-
-	Ele funciona da mesma forma que a Fetch API original, só que cria uma variável
-	global fetchAtivo, para contar quantos fetch() estão em execução :)
-
-	Documentação da Fetch API original:
-	https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
--->
-<script src="/public/js/fetch.js"></script>
-
-<script type="text/javascript">
-
-	$("#form").validate({
-		rules: {
-			// Aqui o que vale é o name, não o id!
-            imagem: {
-                required: true
-            },
-			nome: {
-				required: true
-			},
-			autor: {
-				required: true
-			}
+	
+	const ctx = document.getElementById('lineChart').getContext('2d');
+	const lineChart = new Chart(ctx, {
+		type: 'line',
+		data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
 		},
-
-		submitHandler: function (form) {
-			// Não pode simplesmente fazer submitHandler: criarPessoa, porque criarPessoa() é async... :(
-			criarObra(form);
+		options: {
+			scales: {
+				y: {
+					beginAtZero: true
+				}
+			}
 		}
 	});
 
-	async function criarObra(form) {
-		// Vamos prevenir cliques duplos/acidentais :)
-		if (fetchAtivo) {
-			return;
-		}
-
-		let opcoes = {
-			method: "POST",
-			// Esta forma não depende do jQuery, não precisa configurar o header e
-			// ainda permite o envio de arquivos! Mas precisa de uma linha de configuração
-			// a mais do lado do Node.js!
-		    body: new FormData(form)
-		};
-
-		try {
-			let response = await fetch("/criarObra", opcoes);
-
-			if (response.ok) {
-				// Limpa os campos para facilitar a criação da próxima obbra.
-				form.reset();
-				// Limpa os erros e sucessos.
-				$(form).validate().resetForm();
-
-				alert("Obra criada com sucesso!");
-			} else {
-                let erro = await response.json();
-				alert("Erro ao criar a obra: " + erro);
+	const ctx2 = document.getElementById('doughChart').getContext('2d');
+	const dough = new Chart(ctx2, {
+		type: 'doughnut',
+		data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+		  responsive: true,
+		  plugins: {
+			legend: {
+			  position: 'top',
+			},
+			title: {
+			  display: true,
+			  text: 'Chart.js Doughnut Chart'
 			}
-		} catch (ex) {
-			alert("Erro de rede: " + ex.message);
+		  }
+		},
+	  });
+
+	  const ctx3 = document.getElementById('barChart').getContext('2d');
+	  const config = new Chart(ctx3,{
+		type: 'bar',
+		data: {
+			labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			datasets: [{
+				label: '# of Votes',
+				data: [12, 19, 3, 5, 2, 3],
+				backgroundColor: [
+					'rgba(255, 99, 132, 0.2)',
+					'rgba(54, 162, 235, 0.2)',
+					'rgba(255, 206, 86, 0.2)',
+					'rgba(75, 192, 192, 0.2)',
+					'rgba(153, 102, 255, 0.2)',
+					'rgba(255, 159, 64, 0.2)'
+				],
+				borderColor: [
+					'rgba(255, 99, 132, 1)',
+					'rgba(54, 162, 235, 1)',
+					'rgba(255, 206, 86, 1)',
+					'rgba(75, 192, 192, 1)',
+					'rgba(153, 102, 255, 1)',
+					'rgba(255, 159, 64, 1)'
+				],
+				borderWidth: 1
+			}]
+		},
+		options: {
+		  plugins: {
+			title: {
+			  display: true,
+			  text: 'Chart.js Bar Chart - Stacked'
+			},
+		  },
+		  responsive: true,
+		  scales: {
+			x: {
+			  stacked: true,
+			},
+			y: {
+			  stacked: true
+			}
+		  }
 		}
-	}
-</script>
+	  });
 
-<%- contentFor("pos-styles") %>
-<style type="text/css">
-    body {
-        color: #fff;
-    }
-
-	header {
-		position: absolute;
-	}
-
-	h1 {
-    opacity: 1;
-    font-size: 3.7em;
-    background: linear-gradient(to right, hotpink, rgb(255, 255, 255));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 900;
-	padding-left: 50px;
-}
-
-h2 {
-    opacity: 0.7;
-    font-size: 2.7em;
-    background: linear-gradient(to right, rgb(112, 215, 255), rgb(255, 255, 255));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-	padding-left: 50px;
-}
-</style>
-</style>
+	</script>
+	 
